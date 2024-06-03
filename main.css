@@ -1,0 +1,56 @@
+body {
+    font-family: system-ui;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #212530;
+}
+
+nav h1 {
+    font-size: 2em;
+    margin: 0.5rem 0 0.5rem 0;
+    text-align: center;
+}
+nav {
+    margin-bottom: 3rem;
+    padding: 8px 0 8px 0;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
+    width: 100%;
+}
+
+main {
+    width: 66.6%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    main {
+        width: 100%;
+    }
+}
+
+canvas {
+    padding: 0.5rem;
+}
+
+section {
+    text-align: center;
+}
+
+section p {
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    color: #0d6efe;;
+}
+
+footer p {
+    text-align: center;
+}

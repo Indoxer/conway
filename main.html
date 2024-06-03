@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automaty komórkowe</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div>
+        <nav>
+            <h1>Automaty komórkowe</h1>
+        </nav>
+        <main>
+            <section>
+                <h2>Wprowadzenie</h2>
+                <p><b>Automaty komórkowe</b> to układ sąsiadujących ze sobą komórek, każda komórka może przyjmować różne możliwe stany (liczba stanów jest skończona), komórki najczęściej ułożone są w siatkę. Stan tak stworzonej planszy uwoluuje zgodnie z ściśle określonymi regułami. Przyszły stan komórki zależy tylko i wyłącznie od obecnego stanu komórki i stanu jej sąsiądów. Automaty komórkowe stworzone nawet na podstawie bardzo prostych reguł mogą tworzyć bardzo złożone struktury i zachowania.</p>
+                <p>Automaty komórkowe potrafią być bardzo różnorodne, dzięki temu istnieje możliwość zastosowania ich w bardzo różnych celach, takich jak tworzenie grafiki i animacji (fraktale), modelowanie zjawisk fizycznych, modelowanie systemów biologicznych, tworzenie nowych modeli uczenia maszynowego (AI)</p>
+            </section>
+            <section>
+                <h2>Gra w życie (Conway's Game of Life)</h2>
+                <p>Podstawowym przykładem automatu komórkowego jest "Gra w życie". Gra toczy się na nieskończonej planszy podzielonej na kwadratowe komórki, każda komórka ma 8 sąsiadów - komórki przylegające bokami i rogami. Każda komórka może być żywa lub martwa.</p>
+                <p>Każdy następny stan planszy jest determinowany przez obecny stan planszy według następujących reguł (Każda nowa plansza na początku jest pusta i jest uzupełniana):</p>
+                <p><b>1.</b> Martwa komórka, która ma dokładnie 3 żywych sąsiadów, staje się żywa w następnej jednostce czasu</p>
+                <p><b>2.</b> Żywa komórka z 2 albo 3 żywymi sąsiadami pozostaje żywa, przy innej liczbie sąsiadów umiera</p>
+                <p>Przykładowa symulacja:</p>
+                <div>
+                    <button id="b-start-conway">Start</button>
+                    <button id="b-reset-conway">Zresetuj</button>
+                    <button id="b-live-conway">Żywa komórka</button>
+                    <button id="b-dead-conway">Martwa komórka</button>
+                </div>
+                <canvas id="conway" width="400px", height="300px"></canvas>
+            </section>
+            <section>
+                <h2>Piaskownica (Falling sand simulation)</h2>
+                <p>Automat Komórkowy może być również wykorzystany do symulacji zachowania różnych substancji, zarówno w celach graficznych jak i fizyczno obliczeniowych. Przykładem takiego automatu komórkowego może być symulacja piasku i wody. Taki Automat komórkowy posiada 3 stany (piasek, woda, powietrze)</p>
+                <p>W porównaniu do "Gry w życie", stan planszy nie jest wyliczany od nowa a tylko modyfikowany. Każda komórka po przemieszczeniu jest widoczna dla każdej procesowanej później. W tym przypadku komórki wyliczane są od lewej do prawej, od dołu do góry. </p>
+                <p><b>Reguły takiego automatu komórkowego to:</b></p>
+                <p><b>1.</b> Jeśli komórka to piasek to komórka próbuje przemieścić się kolejno do dołu, lewego dolnego rogu, prawego dolnego rogu. Jeśli w wymienionych sąsiadach nie znajduje się piasek to komórki zamieniają się miejscami</p>
+                <p><b>2.</b> Jeśli komórka to woda to komórka próbuje przemieścić się kolejno do dołu, lewego dolnego rogu, prawego dolnego rogu. Jeśli wymienieni sąsiędzi nie są powietrzem, to komórka próbuje przemieści się losowo w lewo lub prawo.</p>
+                <p><b>3.</b> Jeśli komórka to powietrze to nic się z nią nie dzieje</p>
+                <p>Tak proste reguły tworzą prostą symulacje:</p>
+                <div>
+                    <button id="b-start-sand">Start</button>
+                    <button id="b-reset-sand">Zresetuj</button>
+                    <button id="b-sand-sand">Piasek</button>
+                    <button id="b-water-sand">Woda</button>
+                    <button id="b-air-sand">Powietrze</button>
+                </div>
+                <canvas id="sand" width="400px", height="300px"></canvas>
+                <p>Podana symulacja ma pewne problemy związane z kolejnością procesowania komórek (Woda zlatuje na lewo, bardzo wolno się to wyrównuje), można je rozwiązać poprzez buffering stanu planszy, modyfikacje prawdopodobieństwa ruchu w lewo lub prawo jak i teleportowanie komórek do krawędzi tafli wody (by spadły poziom niżej). Ale w celach prezentacyjnych przedstawiam uproszczony algorytm.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>Indoxer (Mateusz Kwietniewski) - <a href="https://github.com/Indoxer">Github</a> - <a href="https://github.com/Indoxer">Github page source code</a></p>
+        </footer>
+    </div>
+</body>
+</html>
